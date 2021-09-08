@@ -1229,5 +1229,72 @@ for (let ii = 0; ii < res.length; ii++) {
 }
 // 5 4 3 2 1
 
-*/
+
 //===================================================================
+//Program No. 67
+// Using while loop - 1:---
+
+const factorial_Me = num => {
+  let fact = 1;
+  while (num != 0) {
+    fact = fact * num;
+    num--;
+  }
+  return fact;
+};
+const res = factorial_Me(5);
+console.log(res);
+//O/P- 120
+
+//====================================================================
+//Program No. 68
+//Using do While loop
+
+const facto = num => {
+  let fact = 1;
+  do {
+    fact = fact * num;
+    num--;
+  } while (num != 0);
+  return fact;
+};
+const resss = facto(5);
+console.log(resss);
+
+// O/P 120
+
+//==================================================================
+//Program No. 69
+//Using for loop
+const factoria = num => {
+  let fact = 1;
+  for (let i = num; i > 0; i--) {
+    fact = fact * i;
+  }
+  return fact;
+};
+const res = factoria(5);
+console.log(res);
+
+//O/P 120
+
+//==================================================================================
+//Program No. 70
+//Using recursion...
+
+const factorial = num => {
+  if (num == 0) {
+    return 1;
+  } else {
+    return num * factorial(num - 1);
+  }
+};
+
+const res = factorial(5);
+console.log(res);
+
+//O/P 120
+*/
+//===============================================================================
+//Program No. 71
+//
