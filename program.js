@@ -280,7 +280,7 @@ const evenTillNum = num => {
   }
 };
 evenTillNum(10);
-//O/P 2 4 6 8 10 like that. 
+//O/P 2 4 6 8 10 like that.
 
 //======================================================================
 //Program No. 23
@@ -487,7 +487,7 @@ console.log('Minimum Number are : ' + minNu);
 
 //===============================================================================
 //Program No. 34
-//Type -1 
+//Type -1
 //Write a Program to print reverse Number...
 
 const reveseNumber = num => {
@@ -557,7 +557,7 @@ console.log('Reverse Of the Number : ' + re);
 // // num = '-5432100'
 // ------------------------------------------------------
 // Step 2nd : ==Split the String into an Array
-// num.split('') converts the String into an Array of characters. We do this so we can 
+// num.split('') converts the String into an Array of characters. We do this so we can
 // use the Array reverse function (which does not work on a String).
 
 // // num = '-5432100'
@@ -576,7 +576,7 @@ console.log('Reverse Of the Number : ' + re);
 
 // // num = [ '0', '0', '1', '2', '3', '4', '5', '-' ]
 // -----------------------------------------------------------------
-// step 4th 
+// step 4th
 // Join it back into a string
 // num.join('') reassembles the reversed characters into a String.
 
@@ -808,16 +808,16 @@ const table = num => {
 };
 table(5);
 
-//5  *  1  = 5 
-//5  *  2  = 10 
-//5  *  3  = 15 
-//5  *  4  = 20 
-//5  *  5  = 25 
-//5  *  6  = 30 
-//5  *  7  = 35 
-//5  *  8  = 40 
-//5  *  9  = 45 
-//5  *  10  = 50 
+//5  *  1  = 5
+//5  *  2  = 10
+//5  *  3  = 15
+//5  *  4  = 20
+//5  *  5  = 25
+//5  *  6  = 30
+//5  *  7  = 35
+//5  *  8  = 40
+//5  *  9  = 45
+//5  *  10  = 50
 
 //===================================================================================
 // program No. 48
@@ -1066,7 +1066,6 @@ for (let i = 0; i < str.length; i++) {
 }
 console.log(`Upper Latter are : ${uc}  and Lower Latter are : ${lc} `);
 
-
 //================================================================================
 //Program No. 60
 //
@@ -1115,8 +1114,10 @@ whichTypeLetter(str1);
 // Consonenet are : 12
 // Digit are : 10
 // Spcial are : 4
- 
+
 //================================================================================
+//================================================================================
+//=================================================================================
 // IMPORTANT CONCEPT----
 //  Array Program----------------------
 //-------------------------------------
@@ -1131,16 +1132,14 @@ console.log('Element are ' + arr[1]);
 console.log('Element are ' + arr[2]);
 console.log('Element are ' + arr[3]);
 
-
 //===================================================================================
 //Program No. 62
 
 const age = [4, 5, 6, 8, 75, 49, 2, 4, 3, 5, 341, 51, 45, 22];
 console.log('Using for Loop..');
-for (let i = 0; i < age.length ; i++) {
+for (let i = 0; i < age.length; i++) {
   console.log(age[i] + ' ');
 }
-
 
 //====================================================================================
 //Program No. 63
@@ -1229,7 +1228,6 @@ for (let ii = 0; ii < res.length; ii++) {
 }
 // 5 4 3 2 1
 
-
 //===================================================================
 //Program No. 67
 // Using while loop - 1:---
@@ -1294,7 +1292,140 @@ const res = factorial(5);
 console.log(res);
 
 //O/P 120
-*/
+
 //===============================================================================
 //Program No. 71
+// Write a program to find a big number in array...
+
+let noOfEle = prompt('Enter Any Array Length  ?    ? ');
+let arr = [];
+
+for (let i = 0; i < noOfEle; i++) {
+  arr[i] = prompt();
+}
+
+let big = 0;
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] > big) {
+    big = arr[i];
+  }
+}
+
+console.log('Heighest Number is : ' + big);
+
+//Heighest Number is : 62
+
+//=======================================================================================
+//Program No. 72
+//write a program print sum of the all given array...
+
+let noOfEle = prompt('Enter Any Array Length  ?   ?   ');
+const arr = [];
+for (let i = 0; i < noOfEle; i++) {
+  arr[i] = prompt();
+}
+let sum = 1;
+for (let i = 0; i < noOfEle; i++) {
+  sum = sum + arr[i];
+}
+console.log('Sum of all Array Number :' + sum);
+
+//=================================================================================
+//Program No. 73
 //
+
+let arr = [1, 2, 3, 4, 5];
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+  sum = sum + arr[i];
+}
+console.log(sum);
+
+//  Output :  15
+
+//======================================================================================
+//program No. 74
+//positive aor negitive count an array...
+
+let arr = [12, 14, -14, 19, 78, -14, -23, 32, -1, -36, 119, 145];
+
+let negative = 0;
+let positive = 0;
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] < 0) {
+    negative++;
+  } else {
+    positive++;
+  }
+}
+console.log(`Positive : ${positive}`);
+console.log(`Negative : ${negative}`);
+
+//Positive : 7
+//Negative : 5
+
+//========================================================================================
+//Program No. 75
+// count even or odd in array..
+
+const arr = [11, 14, 16, 17, 27, 19, 50, 24, 36, 40, 54, 66, 75, 80];
+let evevCount = 0;
+let oddCount = 0;
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] % 2 == 0) {
+    evevCount++;
+  } else {
+    oddCount++;
+  }
+}
+console.log(`Even count : ${evevCount}`);
+console.log(`Odd Count : ${oddCount}`);
+
+// Even count : 9
+// Odd Count : 5
+
+
+//==========================================================================================
+//Program No. 76
+//merge two array in single array..
+//immuutable ---we can not change...
+//mutable---we can change....
+//=====================================================================================
+//merge using spread operator....
+
+let arr1 = [10, 20, 40, 60, 45, 70, 63];
+let arr2 = [70, 54, 65, 75, 85, 95, 14];
+let mergeRes = [...arr1, ...arr2];
+
+for (let i = 0; i < mergeRes.length; i++) {
+  console.log(mergeRes[i] + '  ');
+}
+
+
+//==========================================================================
+//Program No. 77
+// Using array.cancat() method...
+
+let arr1 = [10, 20, 40, 60, 45, 70, 63];
+let arr2 = [70, 54, 65, 75, 85, 95, 144];
+
+const mergeRess = arr1.concat(arr2);
+for (let i = 0; i < mergeRess.length; i++) {
+  console.log(mergeRess[i] + ' ');
+}
+
+*/
+//===========================================================================
+//Program No.78
+//using push ans spread() method...
+
+let arr1 = [10, 20, 40, 60, 45, 70, 63];
+let arr2 = [70, 54, 65, 75, 85, 95, 104];
+arr1.push(...arr2);
+for (let i = 0; i < arr1.length; i++) {
+  console.log(arr1[i] + ' ');
+}
+
+//=============================================================
