@@ -1416,7 +1416,7 @@ for (let i = 0; i < mergeRess.length; i++) {
   console.log(mergeRess[i] + ' ');
 }
 
-*/
+
 //===========================================================================
 //Program No.78
 //using push ans spread() method...
@@ -1427,5 +1427,33 @@ arr1.push(...arr2);
 for (let i = 0; i < arr1.length; i++) {
   console.log(arr1[i] + ' ');
 }
+*/
+//==========================================================================
+//Program No.79
+//given array find the number of prime number...
 
-//=============================================================
+let arr1 = [4, 3, 7, 9, 15, 11, 13, 45, 66, 25];
+let count = 0;
+for (let i = 0; i < arr1.length; i++) {
+  let res = isPrimeNumber(arr1[i]);
+  if (res == true) count++;
+}
+console.log('count of prime number ' + count);
+
+function isPrimeNumber(num) {
+  num = parseInt(num);
+  let i = 2;
+  while (num / 2 >= i) {
+    if (num % i == 0) {
+      return false;
+    }
+    i++;
+  }
+  return true;
+}
+
+//O/P - count of prime number 4
+
+//==================================================================================
+//Program No. 80
+//
