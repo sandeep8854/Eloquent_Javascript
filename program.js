@@ -1427,7 +1427,7 @@ arr1.push(...arr2);
 for (let i = 0; i < arr1.length; i++) {
   console.log(arr1[i] + ' ');
 }
-*/
+
 //==========================================================================
 //Program No.79
 //given array find the number of prime number...
@@ -1456,4 +1456,121 @@ function isPrimeNumber(num) {
 
 //==================================================================================
 //Program No. 80
+// merge an array in zigzag type;
+
+let arr1 = [10, 20, 40, 60, 45, 70, 63];
+let arr2 = [70, 54, 65, 75, 85, 95, 104];
+
+let arr3 = [];
+
+let i = 0;
+let k = 0;
+while (i < arr1.length && i < arr2.length) {
+  arr3[k++] = arr1[i];
+  arr3[k++] = arr2[i++];
+}
+
+while (i < arr1.length) {
+  arr3[k++] = arr1[i++];
+}
+
+while (i < arr2.length) {
+  arr3[k++] = arr2[i++];
+}
+
+for (let ii = 0; ii < arr3.length; ii++) {
+  console.log(arr3[ii] + '  ');
+}
+
+//O/P--  10 70 20 54 40 65 60 75 45 85 70 95 63 105
+
+
+//=========================================================================================
+//Program No. 81
+// given array find common element or intersection element...
+
+let arr1 = [23, 45, 56, 78, 18, 32];
+let arr2 = [45, 56, 72];
+let arr3 = [];
+
+let k = 0;
+for (let i = 0; i < arr1.length; i++) {
+  for (let j = 0; j < arr2.length; j++) {
+    if (arr1[i] == arr2[k]) {
+      arr3[k++] = arr1[i];
+      break;
+    }
+  }
+}
+for (let ii = 0; ii < arr3.length; ii++) {
+  console.log(arr3[ii] + ' ');
+}
+
+// O/P -  45 56
+
+//===============================================================================
+//Program No. 82
+// frequency count
+
+function findCount(arr, n) {
+  let hash = new Array(n);
+  for (let i = 0; i < n; i++) {
+    hash[i] = 0;
+  }
+
+  let i = 0;
+  while (i < n) {
+    hash[arr[i] - 1]++;
+    i++;
+  }
+  console.log('starting.....');
+  for (i = 0; i < n; i++) {
+    console.log(i + 1 + ' >== ' + hash[i] + ' ');
+  }
+}
+
+let arr = [2, 3, 3, 2, 5];
+findCount(arr, arr.length);
+
+//starting.....
+// 1 >== 0
+// 2 >== 2
+// 3 >== 2
+// 4 >== 0
+// 5 >== 1
+
+//========================================================================
+//    HackerRank Problem in javascript.......
+//    Important  ----------------------------
+//========================================================================
+// Problem No. 01
+// Solve Me First
+function solvemeFirst(a, b) {
+  return a + b;
+}
+const res = solvemeFirst(4, 8);
+console.log(res);
+
+// O/P  8
+
+//=========================================================================
+//Problem No. 02
+// Sum of array..
+
+function sumOfArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+let arrrr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const rreses = sumOfArray(arrrr);
+console.log(rreses);
+
+//O/p - 55
+*/
+
+//=========================================================================
+//Program No. 03
 //
