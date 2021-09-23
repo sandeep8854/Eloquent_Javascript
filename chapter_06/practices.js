@@ -8,7 +8,7 @@
 // Alone, this refers to the global object.
 // In a function, this refers to the global object.
 // In a function, in strict mode, this is undefined.
-/*
+
 const person = {
   firstName: 'Sandeep',
   lastName: 'Prajapti',
@@ -103,7 +103,6 @@ console.log(person.firstName + ' is ' + person.age + ' year old. ');
 
 //===============================================================
 
-
 // Creating a JavaScript Object:-----
 //===========================================
 // With JavaScript, you can define and create your own objects.
@@ -126,7 +125,7 @@ const person = {
   eyeColor: 'blue',
 };
 console.log(person.firstName + ' is ' + person.age + ' year old. ');
-// Sandeep is 24 year old. 
+// Sandeep is 24 year old.
 
 //=========================================================================================
 
@@ -173,7 +172,6 @@ console.log(person.age);
 
 // The object x is not a copy of person. It is person. Both x and person are the same object.
 // Any changes to x will also change person, because x and person are the same object.
-
 
 //==========================================================================
 // MOST IMPORTANT PROPERTIES OF JAVASCRIPT------
@@ -359,7 +357,6 @@ for (let x in person) {
 console.log(res);
 
 // Sandeep 24 Bengaluru
-
 
 //========================================================================
 
@@ -741,7 +738,6 @@ console.log(myFather1.fullName());
 // Property	Description
 // size	Returns the number elements in a Set
 
-
 //create a set()
 const letter = new Set(['a', 'b', 'c']);
 console.log(letter.size);
@@ -856,7 +852,6 @@ console.log(text);
 // values()	Returns an iterator object of the values in a Map
 // Property	Description
 // size	Returns the number of Map elements
-
 
 //---------------------------------------------------------------------------
 //  new Map()
@@ -1034,6 +1029,435 @@ console.log(text);
 // bananas,300
 // oranges,200
 //-----------------------------------------------------------------------------------
-*/
+
 //  Objects as Keys
 //  Being able to use objects as keys is an important Map feature.
+//-----------------------------------------------------------------------
+
+//   The Argument Object-:
+// 01- JavaScript functions have a built-in object called the arguments object.
+// 02- The argument object contains an array of the arguments used when the function was called (invoked).
+
+//----------------------------------------------------------------------------------------------------------
+//  Javascript Function call
+//------------------------------------
+// method reuse-:
+//                with the call() method , you can write a method that can be used on different object.
+//------------------------------------------------------------------------------------------------------
+//creata a object 3 properties--
+const myObject = {
+  firstName: 'Sandeep',
+  lastName: 'Prajapati',
+  fullName: function () {
+    return this.firstName + ' ' + this.lastName;
+  },
+};
+console.log(myObject.fullName());
+
+// Sandeep Prajapati
+//------------------------------------------------------------------------
+//   The JavaScript call() Method
+//-----------------------------------------
+// The call() method is a predefined JavaScript method.
+// It can be used to invoke (call) a method with an owner object as an argument (parameter).
+// With call(), an object can use a method belonging to another object.
+
+const person = {
+  fullName: function () {
+    return this.firstName + ' ' + this.lastName;
+  },
+};
+
+const person1 = {
+  firstName: 'Sandeep',
+  lastName: 'Prajapati',
+};
+
+const person2 = {
+  firstName: 'Hora',
+  lastName: 'Prashad',
+};
+
+console.log(person.fullName.call(person1));
+// Sandeep Prajapati
+
+console.log(person.fullName.call(person2));
+//  Hora Prashad
+
+//-----------------------------------------------------------------------------
+//  Call() method can accept argument.
+//----------------------------------------
+const person = {
+  fullName: function (city, country) {
+    return this.firstName + ' ' + this.lastName + ' ' + city + ' ' + country;
+  },
+};
+
+const person1 = {
+  firstName: 'Sandeep',
+  lastName: 'Prajapati',
+};
+console.log(person.fullName.call(person1, 'Bengaluru', 'India'));
+
+//  Sandeep Prajapati Bengaluru India
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+//   JavaScript Function Apply
+//---------------------------------------------------------------------------------
+// Method Reuse
+// With the apply() method, you can write a method that can be used on different objects.
+// The JavaScript apply() Method
+// The apply() method is similar to the call() method
+//----------------------------------------------------------------------------------
+
+const person = {
+  fullName: function () {
+    return this.firstName + ' ' + this.lastName;
+  },
+};
+
+const person1 = {
+  firstName: 'Sandeep',
+  lastName: 'Prajapati',
+};
+
+console.log(person.fullName.apply(person1));
+// Sandeep Prajapati
+
+//=================================================================================
+//  The Difference Between call() and apply()
+//---------------------------------------------------------------------------------
+//The difference is:
+//The call() method takes arguments separately.
+//The apply() method takes arguments as an array.
+//The apply() method is very handy if you want to use an array instead of an argument list.
+
+//----------------------------------------------------------------------------------
+// The apply() Method with Arguments
+//The apply() method accepts arguments in an array:
+
+const person = {
+  fullName: function (city, country) {
+    return this.firstName + ' ' + this.LastName + ' ' + city + ' ' + country;
+  },
+};
+
+const person1 = {
+  firstName: 'Rakesh',
+  LastName: 'Yadav',
+};
+
+console.log(person.fullName.apply(person1, ['BhagalPur', 'India']));
+
+//  Rakesh Yadav BhagalPur India
+
+//-------------------------------------------------------------------------------------
+//  Max Method on Arrays
+//You can find the largest number (in a list of numbers) using the Math.max() method:
+
+console.log('Max Value of : ' + Math.max(1, 2, 3));
+//  Max Value of : 3
+
+console.log(Math.max.apply(null, [1, 2, 3]));
+// 3
+
+console.log(Math.max.apply(Math, [1, 4, 5, 6]));
+// 6
+
+console.log(Math.max.apply(' ', [4, 6, 9, 7]));
+// 9
+
+console.log(Math.max.apply(0, [4, 7, 5, 9, 12]));
+// 12
+
+//=====================================================================================
+
+//    Javascript Closure:---
+//----------------------------------
+// 01-  variable can belongs to local and global scope.
+// 02-  global variabe can be made local(private) with closure.
+//-------------------------------------------------------------------
+
+// function can access all variable define inside the function..
+
+function myFunction() {
+  let a = 4;
+  return a * a;
+}
+console.log(myFunction());
+// 16
+
+//-------------------------------------------------------------------------
+//But  function can also access variable define ouside the function.
+let a = 4;
+function myFunction1() {
+  return a * a;
+}
+console.log('Outside Variable : ' + myFunction1());
+
+//   Outside Variable : 16
+//----------------------------------------------------------------------
+//.Variables created without a declaration keyword
+// (var, let, or const) are always global, even if they are created inside a function.
+// function myFunction() {
+//   a = 5;
+// }
+// const res = myFunction();
+// console.log(res);
+
+// console.log(myFunction() + a);
+
+//=================================================================================
+//important..
+
+let counter = 0;
+function add() {
+  counter = counter + 1;
+}
+add();
+add();
+add();
+console.log(counter);
+// 3
+
+// There is a problem with the solution above: Any code on the page can change the counter, without calling add().
+//The counter should be local to the add() function, to prevent other code from changing it:
+
+let counter = 0;
+function add() {
+  let counter = 0;
+  counter = counter + 1;
+  console.log(counter);
+  // 1
+}
+add();
+add();
+add();
+
+console.log(counter);
+//0
+//=====================================================================================
+// It did not work because we display the global counter instead of the local counter.
+//We can remove the global counter and access the local counter by letting the function return it:
+
+function add() {
+  let counter = 0;
+  counter += 1;
+  return counter;
+}
+console.log(add()); // 1
+console.log(add()); // 1
+console.log(add()); // 1
+
+//======================================================================
+//    JavaScript Nested Functions
+//All functions have access to the global scope.
+//In fact, in JavaScript, all functions have access to the scope "above" them.
+//JavaScript supports nested functions. Nested functions have access to the scope "above" them.
+//In this example, the inner function plus() has access to the counter variable in the parent function:
+//-------------------------------------------------------------------------------------------------------
+function add() {
+  let counter = 0;
+  function plus() {
+    counter += 1;
+  }
+  plus();
+  return counter;
+}
+
+console.log(add()); //1
+
+//-------------------------------------------------------------------
+// This could have solved the counter dilemma, if we could reach the plus() function from the outside.
+//We also need to find a way to execute counter = 0 only once.
+//We need a closure.
+
+// JavaScript Closures
+// Remember self-invoking functions? What does this function do?
+
+const add = (function () {
+  let count = 0;
+  return function () {
+    count += 1;
+    return count;
+  };
+})();
+
+console.log(add()); // 1
+console.log(add()); // 2
+console.log(add()); // 3
+
+// A closure is a function having access to the parent scope, even after the parent function has closed.
+//----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
+
+// //  Self-Invoking Functions
+// (function () {
+//   let x = 'Hello I called Myseff.';
+//   console.log(x);
+// })();
+// // Hello I called Myseff
+//----------------------------------------------------------------------------------------------
+// closures-:
+//In JavaScript, closures are defined as inner functions that have access to variables
+//and parameters of outer function even after the outer function has returned.
+//------------------------------------------------------------------------------------
+function greeting(firstName, lastName) {
+  var message = 'Hello ' + firstName + ' ' + lastName + '!';
+
+  return function () {
+    console.log(message);
+  };
+}
+
+var greetingBilly = greeting('Billy', 'Bob');
+var greetingLuke = greeting('Sandeep', 'Prajapati');
+
+greetingBilly();
+greetingBilly();
+greetingLuke();
+
+// Hello Billy Bob!
+// Hello Billy Bob!
+// Sandeep Prajapati.
+//----------------------------------------------------------------------------------
+// Note:- In this example, a variable mult is defined that is local to the function multFn
+//and is only accessible inside this function. When an inner function is declared,
+//JavaScript creates a closure where the inner function has access to the
+// variable and its parameters.
+
+function multFn() {
+  var mult = 9;
+  return function (val) {
+    mult = mult * val;
+    return mult;
+  };
+}
+
+// Use the closure
+var multR = multFn();
+console.log(multR(2));
+//18
+
+//------------------------------------------------------------------------------
+
+//     JavaScript Classes-:
+///----------------------------------
+//  01- javascript classes are templates for javascript objects..
+// syntax-:
+
+// class ClassName{
+//   constructor(){
+
+//   }
+// }
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+// 01- A JavaScript class is not an object.
+// 02- It is a template for JavaScript objects.
+
+//  Using a Class
+//  When you have a class, you can use the class to create objects:
+
+const myCar = new Car('Audi', 2019);
+const myCar1 = new Car('Ford', 2020);
+console.log(myCar.name + ' ' + myCar.year);
+console.log(myCar1.name + ' ' + myCar1.year);
+
+// Audi 2019
+// Ford 2020
+
+// Note-:
+//        Constuctor method is called automatically when new object are created..
+
+//-----------------------------------------------------------------------------------
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age() {
+    let date = new Date();
+    return date.getFullYear() - this.year;
+  }
+}
+let myCar = new Car('Honda City', 2015);
+console.log('My Car is ' + myCar.age() + ' year old.');
+
+//  My Car is 6 year old.
+
+//-----------------------------------------------------------------------------------
+
+// You can send parameter to class method.
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+let date = new Date();
+let year = date.getFullYear();
+
+const myCar = new Car('Audi', 2014);
+console.log('My Car is ' + myCar.age(year) + ' year old');
+
+//  My Car is 7 year old
+//---------------------------------------------------------------------------------------
+
+// -- --------Class inheritance:----------
+//-------------------------------------------------
+//  To create a class inheritance, use the extends keyword.
+//A class created with a class inheritance inherits all the methods from another class:
+
+class Car {
+  constructor(brand) {
+    this.brand = brand;
+  }
+  present() {
+    return 'I have a ' + this.brand;
+  }
+}
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.mod = mod;
+  }
+  show() {
+    return this.present() + ' , it is a ' + this.mod;
+  }
+}
+let myCar = new Model('Ford', 'Mustang');
+console.log(myCar.show());
+
+// I have a Ford , it is a Mustang
+
+//--------------------------------------------------------------------------------
+
+//    JavaScript Callbacks-:
+//-------------------------------------------------------------------------
+// A callback is a function passed as an argument to another function
+//This technique allows a function to call another function
+//A callback function can run after another function has finished
+//--------------------------------------------------------------------------
+function myFirst() {
+  myDisplayer('Hello');
+}
+function mySecond() {
+  myDisplayer('Goodbye');
+}
+function myDisplayer(some) {
+  console.log(some);
+}
+myFirst(); //hello
+mySecond(); //Goodbye
+
+//---------------------------------------------------------------------------
