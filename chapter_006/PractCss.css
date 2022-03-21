@@ -1,0 +1,151 @@
+/* body {
+  background-color: lightblue;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+p {
+  font-family: verdana;
+  font-size: 20px;
+} */
+
+/* #para1 {
+  text-align: center;
+  color: blueviolet;
+} */
+
+/* .center {
+  text-align: center;
+  color: red;
+} */
+
+/* * {
+  text-align: center;
+  color: blue;
+} */
+
+/* 
+without group selector
+h1 {
+  text-align: center;
+  color: red;
+}
+h2 {
+  text-align: center;
+  color: blue;
+}
+p {
+  text-align: center;
+  color: green;
+} */
+
+/*
+with grouping selector
+ h1,
+h2,
+p {
+  text-align: center;
+  color: aqua;
+} */
+/* h1 {
+  background-color: green;
+}
+div {
+  background-color: lightblue;
+}
+p {
+  background-color: yellow;
+} */
+/* div {
+  background-color: green;
+}
+div.first {
+  opacity: 0.1;
+}
+
+div.second {
+  opacity: 0.3;
+}
+
+div.third {
+  opacity: 0.6;
+} */
+/* div {
+  background-color: rgb(0, 128, 0);
+}
+div.first {
+  background-color: rgba(0, 128, 0, 0.1);
+}
+div.second {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+div.third {
+  background-color: rgba(0, 128, 0, 0.6);
+} */
+/* body {
+  background-image: url('sandeep.jpg');
+} */
+/* p {
+  background-image: url('sandeep.jpg');
+} */
+
+/* body {
+  background-image: url('treeImage.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+} */
+/* body {
+  background-image: url('treeImage.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+  background-attachment: scroll;
+} */
+
+/* div {
+  margin: 0px;
+  border: 1px solid green;
+} */
+/* div {
+  border: 1px solid black;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+  background-color: lightblue;
+} */
+/* div {
+  border: 1px solid #4caf50;
+  padding: 70px;
+  background-color: green;
+} */
+
+/* div {
+  border: 1px solid yellow;
+  padding: 25px 50px 75px 100px;
+  background-color: violet;
+} */
+
+/* div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+} */
+/* a:link {
+  color: red;
+}
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+/* a:hover {
+  color: hotpink;
+}  */
+
+a:active {
+  color: blue;
+}

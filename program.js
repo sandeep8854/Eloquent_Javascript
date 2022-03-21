@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 //First Program 1-
 console.log('Hello');
 
@@ -1569,8 +1569,132 @@ const rreses = sumOfArray(arrrr);
 console.log(rreses);
 
 //O/p - 55
-*/
+
 
 //=========================================================================
 //Program No. 03
+//compare with triplets...
+function compareTriplet(a, b) {
+  let result = [];
+  let aliceScore = 0;
+  let bobScore = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > b[i]) aliceScore++;
+    if (a[i] < b[i]) bobScore++;
+  }
+  result[0] = aliceScore;
+  result[1] = bobScore;
+  return result;
+}
+
+// let a = [5, 6, 7];
+// let b = [3, 6, 10];
+// let a = [1, 2, 3];
+// let b = [3, 2, 1];
+let a = [17, 28, 30];
+let b = [99, 16, 8];
+const res = compareTriplet(a, b);
+for (let i = 0; i < res.length; i++) {
+  console.log(res[i] + ' ');
+}
+
+
+//=========================================================================
+// program No. 04
+// Very big sum
+//----------------------
+function veryBigSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+let arr = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+let res = veryBigSum(arr);
+console.log(res);
+// 5000000015
+
+
+//=========================================================================
+
+let arr = [];
+let arr1 = ['00', '01'];
+let arr2 = ['01', '11'];
+let arr3 = ['20', '21'];
+
+arr.push(arr1);
+arr.push(arr2);
+arr.push(arr3);
+
+console.log(arr[0][0]); // 00
+console.log(arr[2][0]); // 20
+
+//-------------------------------------------------------------
+
 //
+let sandeepArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    console.log(sandeepArray[i][j] + ' ');
+  }
+}
+
+//-------------------------------------------------------------
+let sandeep = [];
+let rows = 2;
+let cols = 3;
+for (let i = 0; i < rows; i++) {
+  sandeep[i] = [];
+}
+
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    console.log(sandeep[i][j] + '  ');
+  }
+}
+
+//-------------------------------------------
+let rows = 2;
+let cols = 3;
+let sandeep = new Array(rows);
+for (let i = 0; i < rows; i++) {
+  sandeep[i] = new Array(cols);
+}
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    console.log(sandeep[i][j] + '  ');
+  }
+}
+
+//-----------------------------------------------------
+
+let sandeep = new Array(2);
+for (let i = 0; i < sandeep.length; i++) {
+  sandeep[i] = new Array(2);
+}
+
+let h = 0;
+for (let i = 0; i < 2; i++) {
+  for (let j = 0; j < 2; j++) {
+    sandeep[i][j] = h;
+    h++;
+  }
+}
+
+//display
+for (let i = 0; i < 2; i++) {
+  for (let j = 0; j < 2; j++) {
+    console.log(sandeep[i][j] + ' ');
+  }
+}
+
+//-----------------------------------------------------------
+//Program No. 05
+// Diagonal Difference
