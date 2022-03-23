@@ -317,4 +317,23 @@ console.log(num_sp);
 num_sp.push(first_1);
 console.log(num_sp); //1,2,3,4,5,6
 */
-//
+//-=============================================================================
+// Adding and removing element from the middle of array.
+//using splice() function.
+let nums_A = [1, 2, 3, 7, 8, 9];
+let newEle = [4, 5, 6];
+nums_A.splice(3, 0, newEle);
+console.log(nums_A);
+for (let i = 0; i < nums_A.length; i++) {
+  console.log(`Modified Array ${nums_A[i]}`);
+}
+//---------------------------------------------------------
+let num_Sp = [1, 2, 3, 7, 8, 9];
+num_Sp.splice(3, 0, 4, 5, 6);
+console.log(num_Sp);
+//--------------------------------------------
+//Using splice() to remove element from an array
+
+let numSP = [1, 2, 3, 100, 200, 300, 400, 4, 5];
+numSP.splice(3, 4);
+console.log(numSP); //1,2,3,4,5
