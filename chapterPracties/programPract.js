@@ -316,7 +316,7 @@ console.log(num_sp);
 
 num_sp.push(first_1);
 console.log(num_sp); //1,2,3,4,5,6
-*/
+
 //-=============================================================================
 // Adding and removing element from the middle of array.
 //using splice() function.
@@ -337,3 +337,160 @@ console.log(num_Sp);
 let numSP = [1, 2, 3, 100, 200, 300, 400, 4, 5];
 numSP.splice(3, 4);
 console.log(numSP); //1,2,3,4,5
+//================================================================
+
+// Putting Array Element in Order.
+let numP = [1, 2, 3, 4, 5];
+numP.reverse();
+console.log(numP);
+
+//we afen need to sort the element of an array into order, the mutator function for
+// this task sort()  work very well with string.
+
+let striName = ['Sandeep', 'Sarvesh', 'Nidhi', 'Harsh', 'Anshika'];
+striName.sort();
+console.log(striName);
+//-------------------------------------------------
+
+let numArr = [3, 1, 2, 100, 4, 200];
+numArr.sort();
+console.log(numArr); // 1,100,2,200,3,4
+// but sort() does not work so well with number.
+
+//----------------------------------------------------------------
+function compare(num1, num2) {
+  return num1 - num2;
+}
+let numArr1 = [3, 1, 2, 100, 4, 200];
+numArr1.sort(compare);
+console.log(numArr1); //1,2,3,4,100,200
+
+// sort in desending order..
+function compare_1(num1, num2) {
+  return num2 - num1;
+}
+let numArr2 = [3, 1, 2, 100, 4, 200];
+numArr2.sort(compare_1);
+console.log(numArr2);
+//------------------------------------------------------
+// IMPORTANT POINT-
+//  1-  A<B----- A COMES FIRST
+//  2-  A==0-----NOTHING WILL BE CHANGED
+//  3-  A>B------B COMES FIRST
+
+const number = [2, 5, 100, 4];
+const sortedNumber = number.sort((a, b) => {
+  return a - b;
+});
+console.log(sortedNumber);
+
+//-----------------------------------------------------
+
+const num_arr = [2, 5, 100, 4, 65, 80];
+const sortedNumber_1 = num_arr.sort((a, b) => {
+  if (a < b) {
+    return -1;
+  } else if (a > b) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
+console.log(sortedNumber_1); //
+
+//---------------------------------------------------
+const spiceFamily = [
+  { name: 'Ram Ashish', age: 40 },
+  { name: 'Anshika', age: 8 },
+  { name: 'Ram Charitra', age: 69 },
+  { name: 'Harsh', age: 12 },
+  { name: 'Sandeep', age: 24 },
+];
+const compa = (a, b) => {
+  // return a.age - b.age;
+  return a.name.length - b.name.length;
+};
+console.log(spiceFamily.sort(compa));
+//--------------------------------------------------------------
+
+// forEach() function----
+// the forEach() method executes a provided function onces for each array element.
+
+let stuRoll = [1, 5, 3, 7, 9, 6];
+stuRoll.forEach(myFunction);
+
+function myFunction(item) {
+  console.log(item); // 1 5,3,7,9,6
+}
+
+// Updating array element----
+//---------------------------------------
+
+let stu = ['Sandeep', 'Harsh', 'Rehan', 'Deepak', 'Yash Wardhan'];
+stu.forEach(myFunction);
+
+function myFunction(item, index, arr) {
+  arr[index] = 'Hello ' + item;
+}
+console.log(stu);
+//------------------------------------------------------------------
+let numA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+numA.forEach(squareBySandeep);
+
+function squareBySandeep(num) {
+  console.log(num, num * num);
+}
+
+//==========================================================================
+// every() function..
+// When You want drive a single boolean value from multiple elements in the array.
+//condition
+//  1- You hava an array
+//  2- You want to test each element in the array.
+//  3- You want to konw whether all the element pass the test true or false
+
+let simArr_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let simArr_2 = [0, -1, -30, -50, 78];
+
+function tester(number) {
+  return number > 0;
+}
+
+let testFind = simArr_1.every(tester);
+console.log(testFind); //true
+
+let testFindd = simArr_2.every(tester);
+console.log(testFindd); //false
+
+//==================================================================
+
+function isEven(numberr) {
+  return numberr % 2 == 0;
+}
+
+let arrNum = [2, 4, 6, 8, 10, 12, 17];
+let even = arrNum.every(isEven);
+let task = true;
+if (even == task) {
+  console.log('All Number are Even..');
+} else {
+  console.log('All Nuumber are Not Even.');
+}
+*/
+//-------------------------------------------------------------
+// some() function
+//-----------------
+// the some() function will take a boolean function and return true if at least one of the element
+// in the array meets the criteria of the boolean function.
+
+function isEven(num) {
+  return num % 2 == 0;
+}
+let numArr_1 = [1, 3, 5, 7, 9];
+//let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let someEven = numArr_1.some(isEven);
+if (someEven) {
+  console.log('Some Number are Even..');
+} else {
+  console.log('No Number are even..');
+}
