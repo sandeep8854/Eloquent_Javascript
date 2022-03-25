@@ -722,4 +722,44 @@ for (let row = 0; row < grades.length; row++) {
 //   average = 0.0;
 // }
 //==============================================================================
+
+// Jagged Array:-- may be have to different number of element like as 2,4,3
+
+let grades = [
+  [89, 77],
+  [76, 82, 81],
+  [91, 94, 89, 99],
+];
+var total = 0;
+var average = 0.0;
+for (var row = 0; row < grades.length; ++row) {
+  for (var col = 0; col < grades[row].length; ++col) {
+    total += grades[row][col];
+  }
+  average = total / grades[row].length;
+  console.log(
+    'Student ' + parseInt(row + 1) + ' average: ' + average.toFixed(2)
+  );
+  total = 0;
+  average = 0.0;
+}
 */
+//======================================================================================
+//
+let getVisitorReport = function (visitorArray, dayInWeek) {
+  let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  let index = dayInWeek - 1;
+  let visitorReport;
+  visitorReport = 'There were ';
+  visitorReport = visitorReport + visitorArray[index];
+  visitorReport = visitorReport + ' visitors ';
+  visitorReport = visitorReport + 'on ' + days[index];
+  return visitorReport;
+};
+let visitors = [354, 132, 210, 221, 481];
+let report = getVisitorReport(visitors, 2);
+console.log(report);
+//There were 132 visitors on Tuesday
+
+// List:---
+//
