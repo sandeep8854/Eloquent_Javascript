@@ -476,7 +476,7 @@ if (even == task) {
 } else {
   console.log('All Nuumber are Not Even.');
 }
-*/
+
 //-------------------------------------------------------------
 // some() function
 //-----------------
@@ -494,3 +494,79 @@ if (someEven) {
 } else {
   console.log('No Number are even..');
 }
+
+//reduce() function....
+//---------------------------------
+function add(runningTotal, currentValue) {
+  return runningTotal + currentValue;
+}
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let sum = arr.reduce(add);
+console.log(`Adding Total Number of Array :- ${sum}`);
+//--------------------------------------------------------------------
+// Using Reduce Function for cancatnation string.
+function concat(accumulatedString, item) {
+  return accumulatedString + item;
+}
+var words = ['the ', 'quick ', 'brown ', 'fox '];
+var sentence = words.reduceRight(concat);
+console.log(sentence);
+
+// step 1st--
+// accumlatedString=the
+// item =quick
+
+// the quick
+//-------------------------------
+//  Step 2nd
+// accumulatedString=the quick
+// item= brown
+// the quick brown
+//-------------------------------
+// step 3rd
+// accumulatedString= the quick brown
+// item = fox
+// the quick brown fox              --- Final Result.
+//=========================================================================================
+// reduceRight() function, which works similarly to
+//reduce(), only working from the righthand side of the array to the left, instead of from
+//left to right.
+
+function concat_1(accumlatedString, item) {
+  return accumlatedString + item;
+}
+//---------------------------------------------------------------------------------------------------------
+let word = ['the ', 'quick ', 'brown ', 'fox ']; // single quote with right hand single space is mandtrary.
+let sentence_1 = word.reduceRight(concat_1);
+console.log(sentence_1);
+
+function concat_2(accumulatedString, item) {
+  return accumulatedString + item;
+}
+var words_ = ['the ', 'quick ', 'brown ', 'fox '];
+var sentence_ = words_.reduceRight(concat_2);
+console.log(sentence_);
+*/
+// Iterator function that return a new Array
+//--------------------------------------------
+// there are tow iterator function that return a new array : map() and filter()
+// map() function work like the forEach() function.
+
+function curve(grade) {
+  return (grade = grade + 5);
+}
+let grade = [77, 65, 81, 92, 83];
+let newGrade = grade.map(curve);
+console.log(newGrade);
+
+//---------------------------------------------------------
+// Example with String
+function first(word) {
+  return word[0];
+}
+let words = ['kind', 'your', 'information'];
+let accronym = words.map(first);
+console.log(accronym.join('')); //kyi
+
+//------------------------------------------------------------
