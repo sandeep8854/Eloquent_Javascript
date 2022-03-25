@@ -547,7 +547,7 @@ function concat_2(accumulatedString, item) {
 var words_ = ['the ', 'quick ', 'brown ', 'fox '];
 var sentence_ = words_.reduceRight(concat_2);
 console.log(sentence_);
-*/
+
 // Iterator function that return a new Array
 //--------------------------------------------
 // there are tow iterator function that return a new array : map() and filter()
@@ -570,3 +570,43 @@ let accronym = words.map(first);
 console.log(accronym.join('')); //kyi
 
 //------------------------------------------------------------
+*/
+// filter() function
+// the filter function words similarly to every() function but instead of returning true
+// if all the element of the array satisfied the boolean function ,the function return new
+// array, consisting of those element that satisfied the boolean function.
+
+function isEven(num) {
+  return num % 2 == 0;
+}
+
+function isOdd(num_1) {
+  return num_1 % 2 != 0;
+}
+let arr = [];
+for (let i = 0; i < 20; i++) {
+  arr[i] = i + 1;
+}
+let even = arr.filter(isEven);
+console.log('Even Number: ');
+console.log(even);
+
+let odd = arr.filter(isOdd);
+console.log('Odd Number:-');
+console.log(odd);
+//==============================================================================================
+//Another use of filter() function...
+function passing(num_2) {
+  return num_2 >= 60;
+}
+
+let grade = [];
+for (let i = 0; i < 20; i++) {
+  grade[i] = Math.floor(Math.random() * 101);
+}
+
+let passGrade = grade.filter(passing);
+console.log('All Grades: - ');
+console.log(grade);
+console.log('passing Grades');
+console.log(passGrade);
