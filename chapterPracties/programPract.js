@@ -634,7 +634,7 @@ for (let i = 0; i < 2; i++) {
   }
 }
 //========================================================
-*/
+
 //create  a one dimenstional array
 let twoDarray = new Array(3);
 //loop to create 2d array using 1d
@@ -658,3 +658,24 @@ for (let i = 0; i < 3; i++) {
     console.log(twoDarray[i][j] + ' ');
   }
 }
+*/
+//=================================================================
+// CrockFord:-- IMPORTANT
+Array.matrix = function (numrows, numcols, initial) {
+  let arr = [];
+  for (let i = 0; i < numrows; i++) {
+    let colums = [];
+    for (let j = 0; j < numcols; j++) {
+      colums[j] = initial;
+    }
+    arr[i] = colums;
+  }
+  return arr;
+};
+
+let nums = Array.matrix(5, 5, 0);
+console.log(nums[1][1]); // 0
+
+let names = Array.matrix(3, 3, '');
+names[1][2] = 'sandeep';
+console.log(names[1][2]);
