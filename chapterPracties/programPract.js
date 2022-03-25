@@ -635,3 +635,26 @@ for (let i = 0; i < 2; i++) {
 }
 //========================================================
 */
+//create  a one dimenstional array
+let twoDarray = new Array(3);
+//loop to create 2d array using 1d
+
+for (let i = 0; i < twoDarray.length; i++) {
+  twoDarray[i] = [];
+}
+let h = 0;
+let s = 'GeeksforGeeks';
+//loop to initialzation 2d array..
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    twoDarray[i][j] = s[h++];
+  }
+}
+
+//loop to display the element of two d array
+
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    console.log(twoDarray[i][j] + ' ');
+  }
+}
