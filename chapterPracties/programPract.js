@@ -570,7 +570,7 @@ let accronym = words.map(first);
 console.log(accronym.join('')); //kyi
 
 //------------------------------------------------------------
-*/
+
 // filter() function
 // the filter function words similarly to every() function but instead of returning true
 // if all the element of the array satisfied the boolean function ,the function return new
@@ -610,3 +610,28 @@ console.log('All Grades: - ');
 console.log(grade);
 console.log('passing Grades');
 console.log(passGrade);
+
+//============================================================================
+// Creating 2D dimenstional Array.
+let twoDarray = new Array(2); //one dimenstional array
+console.log('Creating 2D array.');
+//loop to create 2 d Array using 1 d Array
+for (let i = 0; i < 2; i++) {
+  twoDarray[i] = new Array(2);
+}
+
+let h = 0; //loop initalization 2D array
+for (let i = 0; i < 2; i++) {
+  for (let j = 0; j < 2; j++) {
+    twoDarray[i][j] = h++;
+  }
+}
+
+//loop for display
+for (let i = 0; i < 2; i++) {
+  for (let j = 0; j < 2; j++) {
+    console.log(twoDarray[i][j] + ' ');
+  }
+}
+//========================================================
+*/
