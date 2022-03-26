@@ -703,24 +703,24 @@ for (let row = 0; row < grades.length; row++) {
   average = 0.0;
 }
 
-// var grades = [
-//   [89, 77, 78],
-//   [76, 82, 81],
-//   [91, 94, 89],
-// ];
-// var total = 0;
-// var average = 0.0;
-// for (var row = 0; row < grades.length; ++row) {
-//   for (var col = 0; col < grades[row].length; ++col) {
-//     total += grades[row][col];
-//   }
-//   average = total / grades[row].length;
-//   console.log(
-//     'Student ' + parseInt(row + 1) + ' average: ' + average.toFixed(2)
-//   );
-//   total = 0;
-//   average = 0.0;
-// }
+var grades = [
+  [89, 77, 78],
+  [76, 82, 81],
+  [91, 94, 89],
+];
+var total = 0;
+var average = 0.0;
+for (var row = 0; row < grades.length; ++row) {
+  for (var col = 0; col < grades[row].length; ++col) {
+    total += grades[row][col];
+  }
+  average = total / grades[row].length;
+  console.log(
+    'Student ' + parseInt(row + 1) + ' average: ' + average.toFixed(2)
+  );
+  total = 0;
+  average = 0.0;
+}
 //==============================================================================
 
 // Jagged Array:-- may be have to different number of element like as 2,4,3
@@ -743,7 +743,7 @@ for (var row = 0; row < grades.length; ++row) {
   total = 0;
   average = 0.0;
 }
-*/
+
 //======================================================================================
 //
 let getVisitorReport = function (visitorArray, dayInWeek) {
@@ -760,6 +760,135 @@ let visitors = [354, 132, 210, 221, 481];
 let report = getVisitorReport(visitors, 2);
 console.log(report);
 //There were 132 visitors on Tuesday
+//==============================================================================
 
 // List:---
-//
+// listSize (property)                 Number of elements in list
+// pos (property)                      Current position in list
+// length (property)                   Returns the number of elements in list
+// clear (function)                    Clears all elements from list
+// toString (function)                 Returns string representation of list
+// getElement (function)               Returns element at current position
+// insert (function)                   Inserts new element after existing element
+// append (function)                   Adds new element to end of list
+// remove (function)                   Removes element from list
+// front (function)                    Sets current position to first element of list
+// end (function)                      Sets current position to last element of list
+// prev (function)                     Moves current position back one element
+// next (function)                     Moves current position forward one element
+// currPos (function)                  Returns the current position in list
+// moveTo (function)                   Moves the current position to specified position
+
+function List() {
+  this.listSize = 0;
+  this.pos = 0;
+  this.dataStore = []; //initization of empty list to store the data.
+  this.clear = clear;
+  this.find = find;
+  this.toString = toString;
+  this.insert = insert;
+  this.append = append;
+  this.remove = remove;
+  this.front = front;
+  this.end = end;
+  this.prev = prev;
+  this.next = next;
+  this.length = length;
+  this.currPos = currPos;
+  this.moveTo = moveTO;
+  this.getElement = getElement;
+  this.contains = contains;
+}
+
+//Append:- Adding element to the list:---
+//-----------------------------------------
+// This function appends a new element onto the list at the next available position,
+// which will be equal to the value
+// of the listSize variable:
+
+function append(element) {
+  this.dataStore[this.listSize++] = element;
+}
+//after the element is appended, listSize incremented by 1.
+
+//-------------------------------------------------------------------------------
+// Remove :- Removing an element from a list.
+function find(element) {
+  for (let i = 0; i < this.dataStore.length; i++) {
+    if (this.dataStore[i] == element) {
+      return i;
+    }
+  }
+  return -1;
+}
+//=================================================================================
+// Find:finding an element in an list.
+
+function remove(element) {
+  let foundAt = this.find(element);
+  if (foundAt > -1) {
+    this.dataStore.splice(foundAt, 1);
+    this.listSize--;
+    return true;
+  }
+  return false;
+}
+//================================================================================
+
+//  Length: Determining the Number of Elements in a List
+function length() {
+  return this.listSize;
+}
+
+//===============================================================================
+//  toString: Retrieving a List’s Elements
+
+function toString() {
+  return this.dataStore;
+}
+
+
+let names = new List();
+names.append('Sandeep');
+names.append('Harsh');
+names.append('Rehan');
+console.log(names.toString());
+
+//=================================================================================4
+// Stack:---- [LIFO] LAST IN FIRST OUT
+//---------------
+// the stack is a list of element that are accessiable only from one end of list
+// which is called the top.
+//  one common, real world example of the stack is atack of trays at a cafeteria, 
+// trays are always reomove from the top ,and when trays are put  back on the stack after being washed
+// they are placed on the top the stack.
+// the stack is know  as a LAST IN FIRST OUT [LIPO] data sturcture.
+
+// Example:--
+//   
+   */
+//===================================================
+function Stack() {
+  this.dataStore = [];
+  this.top = 0;
+  this.push = push;
+  this.pop = pop;
+  this.peek = peek;
+}
+//=====================================================
+
+//The first function to implement is the push() function. When we push a new element
+//onto a stack, we have to store it in the top position and increment the top variable so
+//that the new top is the next empty position in the array.
+function push(element) {
+  return this.dataStore[this.top++];
+}
+//=======================================================
+
+//The pop() function does the reverse of the push() function—it returns the element in
+//the top position of the stack and then decrements the top variable
+
+function pop() {
+  return this.dataStore[this.top--];
+}
+//===========================================================
