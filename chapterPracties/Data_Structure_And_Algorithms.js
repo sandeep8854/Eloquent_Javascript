@@ -106,7 +106,7 @@ for (let i = 0; i < newRes.length; i++) {
 //                  [].concat(collectValues([5]))
 //                         [5].(concatValues([]))
 //================================================================
-*/
+
 // Product of Array through recursive method.
 //----------------------------------------------
 function productOfArray(arr) {
@@ -124,3 +124,27 @@ console.log(res);
 //              [3]*productOfArray([])
 
 //==================================================================
+// Reverse String through recursive
+
+function reverse_(str) {
+  if (str.length <= 1) {
+    return str;
+  }
+  return reverse_(str.slice(1)) + str[0];
+}
+let str = 'peednas';
+let res_ = reverse_(str);
+console.log(res_);
+//================================================================
+*/
+function ispalindrome(str) {
+  if (str.length === 1) return true;
+  if (str.length === 2) return str[0] === str[1];
+  if (str[0] === str.slice(-1)) return ispalindrome(str.slice(1, -1));
+
+  return false;
+}
+let str = 'level';
+let res = ispalindrome(str);
+console.log(res);
+//=============================================================
