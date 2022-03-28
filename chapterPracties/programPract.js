@@ -866,7 +866,7 @@ console.log(names.toString());
 
 // Example:--
 //   
-   */
+   
 //===================================================
 function Stack() {
   this.dataStore = [];
@@ -892,3 +892,30 @@ function pop() {
   return this.dataStore[this.top--];
 }
 //===========================================================
+// The peek() function returns the top element of the stack by accessing the element at
+//the top-1 position of the array:
+
+function peek() {
+  return this.dataStore[this.top - 1];
+}
+//============================================================
+//The length() function returns this value by returning the value of top:
+function length() {
+  return this.top;
+}
+//==============================================================
+
+//Finally, we can clear a stack by simply setting the top variable back to 0:
+function clear() {
+  return (this.top = 0);
+}
+
+//===============================================================
+
+// Testing the stack class implementation:-
+let s = new Stack();
+s.push('Sandeep');
+s.push('Harsh');
+s.push('Rehan');
+console.log('Lenght ' + s.length());
+*/
