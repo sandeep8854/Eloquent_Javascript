@@ -136,7 +136,8 @@ let str = 'peednas';
 let res_ = reverse_(str);
 console.log(res_);
 //================================================================
-*/
+// Good Program......
+
 function ispalindrome(str) {
   if (str.length === 1) return true;
   if (str.length === 2) return str[0] === str[1];
@@ -148,3 +149,53 @@ let str = 'level';
 let res = ispalindrome(str);
 console.log(res);
 //=============================================================
+
+// LINEAR SEARCH:-------------
+//----------------------------
+// Pseudocode for linear search...
+//1- the function accepts an array and value.
+//2- loop througth the array and check if the current array element is equal to the value.
+//3- if it is return the index at which the element is found.
+//4- if the value is never found , return -1;
+
+function linearSearch(arr, val) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === val) {
+      return i;
+    }
+  }
+  return -1;
+}
+let arr = [34, 51, 46, 78, 100, 156, 148, 144];
+let result_ = linearSearch(arr, 156);
+console.log(result_);
+
+//==================================================================
+// BINARY SEARCH:---------------------------------------------------
+//Pseudocode of binary Search...
+
+// 1- The function accept a sorted array and value.
+// 2- create a left pointer at the start of the array,and right pointer at the end of array.
+// 3- while the left pointer comes before the right pointer.
+//   (i) create a pointer in the middle.
+//   (ii) if you find the value you want a return a index.
+//   (iii) if the value is too small move to left pointer
+//   (iv)  if the value is too large, move the right pointer down.
+// 4- if you never find the value return -1.
+*/
+function binary_Search(arr, elem) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+  while (arr[middle] !== elem && start <= end) {
+    if (elem < arr[middle]) end = middle - 1;
+    else start = middle + 1;
+    middle = Math.floor((start + end) / 2);
+  }
+  return arr[middle] === elem ? console.log(middle) : console.log(-1);
+}
+let arrBin = [2, 5, 6, 9, 12, 15, 28, 30];
+let search = 30;
+binary_Search(arrBin, search);
+
+//===============================================================================
