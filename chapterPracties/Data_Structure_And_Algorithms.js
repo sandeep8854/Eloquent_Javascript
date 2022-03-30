@@ -182,7 +182,7 @@ console.log(result_);
 //   (iii) if the value is too small move to left pointer
 //   (iv)  if the value is too large, move the right pointer down.
 // 4- if you never find the value return -1.
-*/
+
 function binary_Search(arr, elem) {
   let start = 0;
   let end = arr.length - 1;
@@ -199,3 +199,72 @@ let search = 30;
 binary_Search(arrBin, search);
 
 //===============================================================================
+
+// Sorting :--
+///          Sorting is a process of rearranging the item in a collection, so that the items
+//          are in same kind of order.
+//Example:-
+// (i) Sorting Number from smallest to largest
+// (ii) Soring Number from largest to smallest.
+// (iii) Sorting names alphabetically.
+// (iv) Sorting movie based on release date.
+// (v) Sorting movies based on revenue .
+//===================================================================
+// Simple Swap by Javascript:----
+//step-1st
+function swap(arr, idx1, idx2) {
+  let temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+}
+//==============================================================
+//step-2nd
+
+const swap1 = (arr, id1, id2) => {
+  [arr[id1], arr[id2]] = [arr[id2], arr[id2]];
+};
+//==================================================================
+
+// Pseudo code for bubble sort.
+//1- Start looping from with variable called i the end of array towords the beginning.
+//2- start the inner loop with a variable called j from the beginnig until i-1;
+//3- if arr[j] is greater than arr[j+1], swap those two values.
+//4- return the sorted array.
+//=========================================================================================
+
+function bubble_Sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      console.log(arr);
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+console.log(bubble_Sort([37, 45, 30, 11, 98, 6, 7, 70]));
+*/
+//===========================================================================
+//Bubble sort optimization.
+function bubbleSort(arr) {
+  let noSwap;
+  for (let i = 0; i < arr.length; i++) {
+    noSwap = true;
+    for (let j = 0; j < arr.length; j++) {
+      console.log(arr, arr[j], arr[j + 1]);
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        noSwap = false;
+      }
+    }
+    if (noSwap) break;
+  }
+  return arr;
+}
+
+console.log(bubbleSort([37, 45, 30, 11, 98, 6, 7, 70]));
