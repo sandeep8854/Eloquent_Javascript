@@ -246,7 +246,7 @@ function bubble_Sort(arr) {
   return arr;
 }
 console.log(bubble_Sort([37, 45, 30, 11, 98, 6, 7, 70]));
-*/
+
 //===========================================================================
 //Bubble sort optimization.
 function bubbleSort(arr) {
@@ -268,3 +268,34 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort([37, 45, 30, 11, 98, 6, 7, 70]));
+*/
+//========================================================================
+// Selection Sort--
+//------------------
+// 1-  similar to bubble sort instead of first placing large value into sorted position
+// 2- it places small values into second position.
+// 3- store the first position as the smallest values.
+// 4- compare this item to the next item in the array until you find the smallest number.
+// 5- if a smallest number is found designate that smallest number to be the new minimum
+//     and continue until the end of the array.
+// 6- if the minumum is not value(index) you initially begin with swap two values.
+// 7- repreat this with the next element until the array is sorted.
+
+function selectionSort(arr) {
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    let lower = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[lower]) {
+        lower = j;
+      }
+    }
+    let temp = arr[i];
+    arr[i] = arr[lower];
+    arr[lower] = temp;
+  }
+  return arr;
+}
+console.log(selectionSort([42, 24, 65, 14, 3, 47]));
+
+//==================================================================
