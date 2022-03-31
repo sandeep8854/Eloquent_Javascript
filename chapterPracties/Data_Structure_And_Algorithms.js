@@ -333,3 +333,38 @@ console.log(insertionSort([2, 1, 9, 76, 4]));
 //         in the second array in to our result and move on the next value in the second array.
 //  5-  onces we exhaust one array push all remaining vslues from another array.
 */
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+function merge(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
+  return result;
+}
+let arr_ = [27, 10, 1, 2, 14, 99, 50, 100];
+let res = mergeSort(arr_);
+console.log(res);
+
+//
