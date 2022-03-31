@@ -268,7 +268,7 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort([37, 45, 30, 11, 98, 6, 7, 70]));
-*/
+
 //========================================================================
 // Selection Sort--
 //------------------
@@ -299,3 +299,37 @@ function selectionSort(arr) {
 console.log(selectionSort([42, 24, 65, 14, 3, 47]));
 
 //==================================================================
+
+// Insertion sort:----
+//--------------------------
+// 1-  start by picking the second element in the array.
+// 2-  now the compare the second element with the one before it and swap it if necessary.
+// 3-  continue to the next element and if it is in incorrect order iterate throught the sorted position
+//       (left side ) to places the element in the correct order.
+// 4-  repeate until the array is sorted.
+
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    console.log('Actual Array ' + arr);
+    let currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+    console.log(arr);
+  }
+  return arr;
+}
+console.log(insertionSort([2, 1, 9, 76, 4]));
+
+//==============================================================
+// Merge Sort:---
+//-----------------
+//  1-  create an empty array take a look at the smallest values in each input array.
+//  2-  while here are still values we are not looked up.
+//  3-  if the values in the first arrray is smaller than the value in the second array push value
+//         in the first array into our result and move on the next values in the first array.
+//  4-  if the values in the first array is larger than the value in the second array push the value
+//         in the second array in to our result and move on the next value in the second array.
+//  5-  onces we exhaust one array push all remaining vslues from another array.
+*/
