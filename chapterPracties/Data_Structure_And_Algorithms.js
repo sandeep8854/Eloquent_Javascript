@@ -463,5 +463,68 @@ console.log(
 );
 */
 //==================================================================================
-// Bubble Sort:----
+// Quick Sort:--
 //------------------
+//
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  //we assuming the pivot is always the first element.
+  let pivot = arr[start];
+  let swapIdx = start;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+  // swap the pivot from start the swap point
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+console.log(quickSort([4, 6, 9, 1, 2, 5]));
+
+//
+//------------------------------------------------
+//  |27 |2 | 38 | 49 | 35 | 37| 7 | 46 | 9 | 33 |
+//-----------------------------------------------
+// 1:- Working on partition [27,2,7........33] (index 2 to 9)
+//     selecting 27 as a pivot (swapIndx=1)
+
+// 2:- checking if 27>2 (pivot) is true , swapping index 1 (value=2) with the element swapIdx 1(value=2)
+//      (value if swapIdx is now =2)
+// 3:- checking if 27>38 false
+// 4:- checking if 27>49 false
+// 5:- checking if 27>35 false
+// 6:- checking if 27>7 true
+// 7:- swaping index 6 (value=7) with element at swapIdx 2 (value=38) value of swapIdx is now=3.
+
+//-----------------------------------------------
+//  |27 |2 | 7 | 49 | 35 | 37| 38 | 46 | 9 | 33 |
+//-----------------------------------------------
+// checking if 27>46 false
+//checking if 27>9 true
+// 27>9 is true ,swaping index 8 (value =9 ) with element at swapIndx 3 (value=49 )value of swapIdx is
+//   now =4;
+
+// checking 27>33 false
+
+//-----------------------------------------------
+//  |27 |2 | 7 | 9 | 35 | 37| 38 | 46 | 49 | 33 |
+//-----------------------------------------------
+// 1st Iteration compleate....
+//  continue .....
+// further iteration....
