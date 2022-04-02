@@ -321,6 +321,32 @@ function insertionSort(arr) {
   return arr;
 }
 console.log(insertionSort([2, 1, 9, 76, 4]));
+//   ====================================================================
+//  arr= [26,41,21,34,8,25,15,48,40,13,12]
+//  mark the first element (26) as sorted
+//  Extract the first unsorted element (41) extract.
+//  figure where to insert compare with sorted element.
+//  26>41 is false , insert element at current position.
+//   Extract the first unsorted element (21) extract.
+//   figure where to insert compare with sorted element.compare with sorted element 41.
+//   41>21 is true hence move current sorted element (41) to right by 1. 
+//  continue......
+//
+//====================================================================================
+// function insertSort(arr){
+  let currentValue,j
+  for(let i=1;i<arr.length;i++){
+    currentValue=arr[i];
+    j=i-1;
+    while(j>=0 && arr[j]>currentValue){
+      arr[j+1]=arr[j];
+      j=j-1;
+    }
+    arr[j+1]=currentValue;
+  }
+  return arr;
+}
+//==============================================================================
 
 //==============================================================
 // Merge Sort:---
@@ -366,7 +392,7 @@ function merge(arr1, arr2) {
 let arr_ = [27, 10, 1, 2, 14, 99, 50, 100];
 let res = mergeSort(arr_);
 console.log(res);
-*/
+
 //==================================================================
 
 // Selection Sort  :-------
@@ -435,3 +461,7 @@ function selectionSort(arr) {
 console.log(
   selectionSort([6, 36, 15, 48, 9, 22, 24, 31, 50, 17, 7, 37, 3, 40])
 );
+*/
+//==================================================================================
+// Bubble Sort:----
+//------------------
