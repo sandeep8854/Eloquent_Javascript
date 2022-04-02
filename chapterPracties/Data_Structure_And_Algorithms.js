@@ -332,7 +332,7 @@ console.log(insertionSort([2, 1, 9, 76, 4]));
 //  4-  if the values in the first array is larger than the value in the second array push the value
 //         in the second array in to our result and move on the next value in the second array.
 //  5-  onces we exhaust one array push all remaining vslues from another array.
-*/
+
 function mergeSort(arr) {
   if (arr.length <= 1) return arr;
   let mid = Math.floor(arr.length / 2);
@@ -366,5 +366,72 @@ function merge(arr1, arr2) {
 let arr_ = [27, 10, 1, 2, 14, 99, 50, 100];
 let res = mergeSort(arr_);
 console.log(res);
+*/
+//==================================================================
 
+// Selection Sort  :-------
+//-------------------------------------
+//repeat (numOfElements - 1) times
+
+//set the first unsorted element as the minimum
+//for each of the unsorted elements
+//if element < currentMinimum
+// set element as new minimum
+//swap minimum with first unsorted position
+//  ---------------------------------------------------------------------
+//  |6 |36 | 15 | 48 | 9 | 22| 24 | 31 | 4 | 50 | 17| 7 | 37| 3| 40  |
+//------------------------------------------------------------------------
+//  Iteration -1
+//        set 6 as the current minimum, then iterate througth the remaining unsorted element to find
+//        the true minimum.
+//   check if 36 is smaller than the currentMinimum (6)  -- false
+//   ---------15-------------------------------------(6) --- false
+//  ----------48-------------------------------------(6)-----false
+//  ----------9-------------------------------------(6)-----false
+//  ----------22-------------------------------------(6)-----false
+//  ----------24-------------------------------------(6)-----false
+//  ----------31-------------------------------------(6)-----false
+//  ----------4-------------------------------------(6)----- true
+//   but now condition will become true;
+//   set 4 as the new currentMinimum.
+//    check if 50 is smaller than the currentMinimum (4)  -- false
+/// -----------17------------------------------------(6) --- false
+//  ------------7------------------------------------(6) --- false
+//  -----------37------------------------------------(6) --- false
+//  -----------3------------------------------------(6) --- true
+//  now conditon become true
+//  set 3 as the new currentMinimum
+//  check if 40 is smaller than the currentMinimum (3)  -- false
 //
+//   swap the minimum (3) with the first unsorted element (6)
+//   3 is now considerd sorted.
+//
+// ---------------------------------------------------------------------
+//  |3 |36 | 15 | 48 | 9 | 22| 24 | 31 | 4 | 50 | 17| 7 | 37| 6| 40  |
+//------------------------------------------------------------------------
+//
+// Iteration 2:
+//  Set 36 as the current minimum, then iterate through the remaining
+//  unsorted elements to find the true minimum.
+//
+//    SAME PROCEDURE ON FURTHER.
+//        CONTINUE....
+//        CONTINUE....
+
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let currentMinimum = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[currentMinimum]) {
+        currentMinimum = j;
+      }
+    }
+    let temp = arr[i];
+    arr[i] = arr[currentMinimum];
+    arr[currentMinimum] = temp;
+  }
+  return arr;
+}
+console.log(
+  selectionSort([6, 36, 15, 48, 9, 22, 24, 31, 50, 17, 7, 37, 3, 40])
+);
