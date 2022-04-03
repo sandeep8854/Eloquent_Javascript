@@ -461,7 +461,7 @@ function selectionSort(arr) {
 console.log(
   selectionSort([6, 36, 15, 48, 9, 22, 24, 31, 50, 17, 7, 37, 3, 40])
 );
-*/
+
 //==================================================================================
 // Quick Sort:--
 //------------------
@@ -528,3 +528,190 @@ console.log(quickSort([4, 6, 9, 1, 2, 5]));
 // 1st Iteration compleate....
 //  continue .....
 // further iteration....
+//========================================================================================================
+
+//   Radix Sort Helpers:-----
+//--------------------------------
+// Inorder to implements radix sort ,its helpher to build a few helpher function first.
+//    getDigit(num,places)- return the digit in num at given place values.
+//like as getDigit(12345,0)  // 5
+//        getDigit(12345,1)  //4
+//        getDigit(12345,2)  //3
+//        getDigit(12345,3)  //2
+//        getDigit(12345,4)  //1
+
+function getDigit(num, i) {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+// console.log(getDigit(7323, 2)); //3
+// console.log(getDigit(7323, 0)); //3
+// console.log(getDigit(7323, 1)); // 2
+// console.log(getDigit(7323, 3)); //7
+
+// Math.abs represent or deal with only negative number.
+//    7323/100   = 73.23
+//     73%10  = 3
+
+//==================================================================================
+// In order to implemnts radix sort it's helpful to build a few helpher function first
+// digitCount(num)-- return the number of digit in number.
+//   digitCount(1)  // 1
+//   digitCount(23) //2
+//   digitCount(314)  //3
+//   digitCount(478569) //6
+
+function digitCount(num) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+// console.log(digitCount(4758));
+// console.log(Math.log10(4758)); //3.6774244377012475
+
+// console.log(Math.floor(Math.log10(Math.abs(4758))) + 1);  // 4
+//=============================================================================
+
+// mostDigit(num)- given an array of number ,return the number of digit the largest
+//  number in the list.
+function mostDigit(num) {
+  let maxDigit = 0;
+  for (let i = 0; i < num.length; i++) {
+    maxDigit = Math.max(maxDigit, digitCount(num[i]));
+  }
+  return maxDigit;
+}
+console.log(mostDigit([24, 45612, 124, 242, 23, 12])); // 5
+
+//===========================================================================
+
+function getDigit(num, i) {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+function digitCount(num) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+function mostDigits(nums) {
+  let maxDigits = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+  }
+  return maxDigits;
+}
+
+function radixSort(nums) {
+  let maxDigitCount = mostDigits(nums);
+  for (let k = 0; k < maxDigitCount; k++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    nums = [].concat(...digitBuckets);
+  }
+  return nums;
+}
+
+console.log(radixSort([23, 345, 5467, 12, 2345, 9852]));
+
+//=========================================================================
+
+// class:--
+//  a blueprint for creating objects with predifined properties and methods.
+
+// creating objects from classes
+// we use the new keyword.
+
+class Student {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  // instance method.
+  fullName() {
+    return `You full Name is ${this.firstName} ${this.lastName}`;
+  }
+}
+let firstStudent = new Student('Sandeep', 'Prajapati');
+let secondStudent = new Student('Rehan', 'Kumar');
+console.log(firstStudent);
+console.log(secondStudent);
+console.log(firstStudent.fullName());
+console.log(secondStudent.fullName());
+
+//==========================================================================
+*/
+//            Singly Linked List:-
+// 1:- A Data structure that contains a head ,tail and length property.
+// 2:- Linked List Consists of node , each node has a value and a pointer to another node
+//       or null.
+
+// piece of data- val
+// reference to next node - next
+//================================================================================
+//  Push PesudoCode
+// 1:-  This function should accept a value.
+// 2:-  create a new Node using the value passed to the function.
+// 3:-  if there is no head property on the list , set the head and tail to be
+//         newly created node.
+// 4:- otherise set the next property on the tail to be the new node and set the tail
+//      property on the list to the newly created node.
+// 5:- incerement the length by 1.
+// 6:- and return the list.
+//==========================================================================================
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+  push(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      // it means head is empty.
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  // Popping PseudoCode:-
+  // 1:- if there are no nodes in the list ,return undefined.
+  // 2:- loop througth the list until you reached the tail.
+  // 3:- set the next property of 2nd to last node to be null.
+  // 4:- set to tail to be the second to last node.
+  // 5:- decrement the length of the list by 1.
+  // 6:- return the value of node removed.
+
+  ///====================================================
+  // traverse() { // for printing element.
+  //   let current = this.head;
+  //   while (current) {
+  //     console.log(current.val);
+  //     current = current.next;
+  //   }
+  // }
+  //======================================================
+}
+let list = new SinglyLinkedList();
+list.push('Hi');
+list.push('GoodBye');
+list.push('!');
+list.traverse();
+
+// let first = new Node('Hi');
+// first.next = new Node('There');
+// first.next.next = new Node('how');
+// first.next.next.next = new Node('are');
+// first.next.next.next.next = new Node('You');
+// console.log(first.next.next);
